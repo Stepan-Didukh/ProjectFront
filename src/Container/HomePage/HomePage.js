@@ -4,7 +4,11 @@ import {Header} from "../../Components/Header/Header";
 class HomePage  extends Component{
     render() {
         return(
-         <Header/>
+            <div>
+                <Header/>
+                HomePage
+            </div>
+
         )
     }
 
