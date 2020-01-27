@@ -21,13 +21,12 @@ function App() {
               <HomePage/>
             </Route>
 
-              <Route exact path="/not-found">
-                  <NotFoundPage/>
-              </Route>
-
-
-
-
+              <Route
+                  path="/not-found"
+                  render={routeProps => (
+                      <NotFoundPage {...routeProps}/>
+                  )}
+              />
             <Redirect
                 from="*"
                 to={{
