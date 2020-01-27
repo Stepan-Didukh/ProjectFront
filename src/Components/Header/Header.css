@@ -1,0 +1,18 @@
+.Components-header {
+    height: 112px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: black;
+    align-items: center;
+}
+
+.Components-header_link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.Components-header_link:hover{
+    color: #8c8c8c;
+}

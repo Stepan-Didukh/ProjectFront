@@ -8,6 +8,8 @@ import {
 
 import HomePage from "./Container/HomePage/HomePage";
 import NotFoundPage from "./Container/NotFoundPage/NotFoundPage";
+import LoginPage from "./Container/LoginPage/LoginPage";
+import RegisterPage from "./Container/RegisterPage/RegisterPage";
 
 
 
@@ -20,6 +22,15 @@ function App() {
             <Route exact path="/">
               <HomePage/>
             </Route>
+
+              <Route exact path="/login">
+                  <LoginPage/>
+              </Route>
+
+              <Route exact path="/register">
+                  <RegisterPage/>
+              </Route>
+
 
               <Route
                   path="/not-found"
