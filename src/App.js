@@ -6,8 +6,8 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import HomePage from "./Conteiner/HomePage/HomePage";
-import NotFoundPage from "./Conteiner/NotFoundPage/NotFoundPage";
+import HomePage from "./Container/HomePage/HomePage";
+import NotFoundPage from "./Container/NotFoundPage/NotFoundPage";
 
 
 
