@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import './RegisterPage.css'
+import {register} from "../../Components/UserFunctions/UserFunctions";
 
 export default class RegisterPage extends Component {
     constructor() {
