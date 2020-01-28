@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {Header} from "../../Components/Header/Header";
 import './HomePage.css'
-import {Link} from "react-router-dom";
 
 
 class HomePage extends Component {

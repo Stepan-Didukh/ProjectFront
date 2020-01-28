@@ -9,6 +9,28 @@
     box-shadow:  0 0 5px black;
 }
 
+.Logo_box{
+    align-items: center;
+    width: 15rem;
+}
+.display-flex{
+    display: flex;
+}
+
+.Small_logo{
+    color: white;
+    font-size: 0.7rem;
+    font-family: "Comic Sans MS",sans-serif;
+    margin-left: 0.4rem;
+}
+
+.Logo_photo{
+    background-image: url("../../assets/Love PNG Love PNGTREE.png");
+    background-size: 100%;
+    height: 47px;
+    width: 63px;
+}
+
 .Components-header_link {
     text-decoration: none;
     color: white;
@@ -23,6 +45,7 @@
 .Components-header_Logo{
     text-decoration: none;
     color: white;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-family: Cambria, sans-serif;
+    margin-top: 0.6rem;
 }
