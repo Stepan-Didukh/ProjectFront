@@ -3,8 +3,10 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    background: black;
+    background: none;
     align-items: center;
+    position: absolute;
+    box-shadow:  0 0 5px black;
 }
 
 .Components-header_link {
@@ -13,6 +15,14 @@
     font-size: 1.5rem;
 }
 
-.Components-header_link:hover{
+.Components-header_link:hover,
+.Components-header_Logo:hover{
     color: #8c8c8c;
+}
+
+.Components-header_Logo{
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    font-family: Cambria, sans-serif;
 }

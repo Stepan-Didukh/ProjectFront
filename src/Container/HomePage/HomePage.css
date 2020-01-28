@@ -1,0 +1,19 @@
+.Photo_box{
+    width: 100%;
+    height:50rem;
+    background-image: url("../../assets/westindtla.jpg");
+    background-size: 100%;
+}
+
+
+.header{
+    transition:0.3s;
+}
+
+.scroller{
+    position: fixed;
+    background: black;
+    height: 70px;
+    transition: 0.3s;
+}
+
