@@ -23,9 +23,9 @@ function App() {
               <HomePage/>
             </Route>
 
-              <Route exact path="/login">
-                  <LoginPage/>
-              </Route>
+              {/*<Route exact path="/login">*/}
+              {/*    <LoginPage/>*/}
+              {/*</Route>*/}
 
               <Route exact path="/register">
                   <RegisterPage/>

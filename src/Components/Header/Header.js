@@ -14,9 +14,9 @@ const {className=''}=props;
                 </div>
                 <div className={'Small_logo'}>Corporation  of  hotels</div>
             </div>
-         
+
             <Link className={`${HR}_link`} to={'/login'} >Sign in</Link>
-            <Link className={`${HR}_link`} to={'/register'} >Sign up</Link>
+            <Link className={`${HR}_link`} to={'/register'} >Register</Link>
         </header>
     )
 }

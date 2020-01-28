@@ -4,7 +4,7 @@ import './Login.scss'
 import {
     Link
 } from 'react-router-dom';
-import {login} from '../../Components/UserFunctions/UserFunctions'
+// import {login} from '../../Components/UserFunctions/UserFunctions'
 
 export default class Login extends React.Component {
     constructor() {
@@ -31,11 +31,11 @@ export default class Login extends React.Component {
             password: this.state.password
         };
 
-        login(user).then(res => {
-            if (res) {
-                this.props.history.push(`/moviesPage`)
-            }
-        })
+        // login(user).then(res => {
+        //     if (res) {
+        //         this.props.history.push(`/moviesPage`)
+        //     }
+        // })
     }
 
     render() {

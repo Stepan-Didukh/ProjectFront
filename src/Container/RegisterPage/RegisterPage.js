@@ -58,7 +58,7 @@ export default class RegisterPage extends Component {
                                                onChange={this.onChange}/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="username">UserSurname</label>
+                                        <label htmlFor="surname">UserSurname</label>
                                         <input type="text"
                                                name="surname"
                                                placeholder="surname"
