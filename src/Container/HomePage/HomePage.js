@@ -13,7 +13,8 @@ class HomePage extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', () => {
-            const isTop = window.scrollY < 100;
+            const isTop = window.scrollY <10 ;
+
             if (isTop !== true) {
                 this.setState({scroller: true});
             } else {
