@@ -1,5 +1,5 @@
 import React from "react";
-import './LoginAdmin.scss'
+import './LoginAdmin.scss';
 import {Link} from 'react-router-dom';
 import {login} from '../../actions/UserFunctions'
 
