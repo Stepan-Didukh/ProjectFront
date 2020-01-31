@@ -1,0 +1,8 @@
+.headerUser{
+    height: 112px;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

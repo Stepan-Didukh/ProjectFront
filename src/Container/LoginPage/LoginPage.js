@@ -33,7 +33,7 @@ export default class Login extends React.Component {
 
         login(user).then(res => {
             if (res) {
-                this.props.history.push(`/`)
+                this.props.history.push(`/User`)
             }
         })
     }
@@ -44,13 +44,10 @@ export default class Login extends React.Component {
             <div className='loginRegister'>
                 <div className='container'>
                     <form noValidate onSubmit={this.onSubmit}>
-
                         <div className="base-container">
                             <div className="header">Login</div>
                             <div className="content">
-                                {/*<div className="image">*/}
-                                {/*    <img src={loginImg}/>*/}
-                                {/*</div>*/}
+
                                 <div className="form">
                                     <div className="form-group">
                                         <label htmlFor="email">Email</label>
