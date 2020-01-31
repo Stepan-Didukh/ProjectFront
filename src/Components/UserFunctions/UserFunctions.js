@@ -12,6 +12,19 @@ export const register = newUser => {
             console.log('Registered')
         })
 };
+export const registerAdmin = newUser => {
+    return axios
+        .post(' http://localhost:5000/admin ', {
+            name: newUser.name,
+            surname:newUser.surname,
+            email: newUser.email,
+            password: newUser.password
+        })
+        .then(response => {
+            console.log('Registered')
+        })
+};
+
 
 export const login = user => {
     return axios
