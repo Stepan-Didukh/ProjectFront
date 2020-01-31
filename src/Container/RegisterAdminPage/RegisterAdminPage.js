@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {registerAdmin} from "../../Components/UserFunctions/UserFunctions";
+import {registerAdmin} from "../../actions/UserFunctions";
 import './RegisterAdminPage.css'
 
 export default class RegisterAdminPage extends Component {

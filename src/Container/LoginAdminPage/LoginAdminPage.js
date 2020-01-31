@@ -1,10 +1,8 @@
 import React from "react";
-// import loginImg from "../../login.svg";
 import './LoginAdmin.scss'
-import {
-    Link
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {login} from '../../actions/UserFunctions'
+
 
 export default class Login extends React.Component {
     constructor() {
