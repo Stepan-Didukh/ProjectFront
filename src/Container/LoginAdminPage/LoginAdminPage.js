@@ -1,6 +1,6 @@
 import React from "react";
 // import loginImg from "../../login.svg";
-import './Login.scss'
+import './LoginAdmin.scss'
 import {
     Link
 } from 'react-router-dom';

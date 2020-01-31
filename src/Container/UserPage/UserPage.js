@@ -5,9 +5,7 @@ import {Logo} from "../../Components/Logo/Logo";
 
 
 class UserPage extends Component {
-    constructor() {
-        super();
-    }
+
 
     logOut(e) {
         e.preventDefault();
