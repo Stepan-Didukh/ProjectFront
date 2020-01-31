@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {register} from "../../Components/UserFunctions/UserFunctions";
+import {registerAdmin} from "../../Components/UserFunctions/UserFunctions";
 import './RegisterAdminPage.css'
 
 export default class RegisterAdminPage extends Component {
@@ -31,7 +31,7 @@ export default class RegisterAdminPage extends Component {
             password: this.state.password
         };
 
-        register(newUser).then(res => {
+        registerAdmin(newUser).then(res => {
             this.props.history.push(`/`)
         })
     }
