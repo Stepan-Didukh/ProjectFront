@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {register} from "../../Components/UserFunctions/UserFunctions";
+import {register} from "../../actions/UserFunctions";
 import './RegisterPage.css'
 
 export default class RegisterPage extends Component {

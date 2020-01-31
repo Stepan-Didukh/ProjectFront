@@ -4,7 +4,7 @@ import './LoginAdmin.scss'
 import {
     Link
 } from 'react-router-dom';
-import {login} from '../../Components/UserFunctions/UserFunctions'
+import {login} from '../../actions/UserFunctions'
 
 export default class Login extends React.Component {
     constructor() {
@@ -33,7 +33,7 @@ export default class Login extends React.Component {
 
         login(user).then(res => {
             if (res) {
-                this.props.history.push(`/Admin`)
+                this.props.history.push(`/User`)
             }
         })
     }
