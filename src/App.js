@@ -10,9 +10,9 @@ import HomePage from "./Container/HomePage/HomePage";
 import NotFoundPage from "./Container/NotFoundPage/NotFoundPage";
 import LoginPage from "./Container/LoginPage/LoginPage";
 import RegisterPage from "./Container/RegisterPage/RegisterPage";
-import UserPage from "./Container/UserPage/UserPage";
-import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
+import MainPage from "./Container/MainPage/MainPage";
 import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
+import Chat from "./Components/Chat/Chat";
 
 
 function App() {
@@ -23,16 +23,17 @@ function App() {
             <Switch>
                 <Route exact path="/" component={HomePage}/>
 
-                <Route exact path="/login" component={LoginPage}/>
+                <Route  path="/login" component={LoginPage}/>
 
-                <Route exact path="/loginAdmin" component={LoginAdminPage}/>
+                <Route  path="/register"><RegisterPage/></Route>
 
-                <Route exact path="/register" component={RegisterPage}/>
+                <Route  path="/support" component={Chat}/>
 
-                <Route exact path="/User" component={UserPage}/>
-                {/*add user name in router*/}
+                <Route  path="/User" component={MainPage}/>
 
-                <Route exact path="/registerAdmin" component={RegisterAdminPage}/>
+                <Route  path="/support" component={Chat}/>
+
+                <Route path="/registerAdmin" component={RegisterAdminPage}/>
 
                 <Route
                     path="/not-found"

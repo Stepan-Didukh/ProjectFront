@@ -1,10 +1,8 @@
 import React from "react";
-// import loginImg from "../../login.svg";
-import './Login.scss'
-import {
-    Link
-} from 'react-router-dom';
+import './Login.scss';
+import {Link} from 'react-router-dom';
 import {login} from '../../actions/UserFunctions'
+import Chat from "../../Components/Chat/Chat";
 
 export default class Login extends React.Component {
     constructor() {
@@ -39,6 +37,7 @@ export default class Login extends React.Component {
     }
 
     render() {
+
         return (
 
             <div className='loginRegister'>
@@ -68,13 +67,14 @@ export default class Login extends React.Component {
                                 </div>
                             </div>
                             <div className="login-footer">
-                                <button type="submit"
-                                        className="btn">
-                                    Login
-                                </button>
+                                <Link
+                                    // onClick={event =>(!this.state.email || !this.state.password)? event.preventDefault():null}
+                                    to={`/User?Name=${this.state.email}`}>
+                                    <button type="submit" className="btn"> Login</button>
+                                </Link>
 
                                 <Link to="/register" className={`btnRegister`}>Register</Link>
-
+                                <Chat name={this.state.email}/>
                             </div>
                         </div>
                     </form>

@@ -22,7 +22,7 @@ export const registerAdmin = newUser => {
             password: newUser.password
         })
         .then(response => {
-            console.log('Registered')
+            console.log('RegisteredAdmin')
         })
 };
 
