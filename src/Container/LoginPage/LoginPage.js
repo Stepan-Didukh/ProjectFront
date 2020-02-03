@@ -33,7 +33,7 @@ export default class Login extends React.Component {
 
         login(user).then(res => {
             if (res) {
-                this.props.history.push(`/User`)
+                this.props.history.push(`/User?Name=${this.state.name}`)
             }
         })
     }
@@ -48,11 +48,10 @@ export default class Login extends React.Component {
                         <div className="base-container">
                             <div className="header">Login</div>
                             <div className="content">
-
                                 <div className="form">
                                     <div className="form-group">
-                                        <label htmlFor="name">Name</label>
-                                        <input type="name"
+                                        <label htmlFor="email">Name</label>
+                                        <input type="text"
                                                name="name"
                                                placeholder="name"
                                                value={this.state.name}
@@ -78,12 +77,11 @@ export default class Login extends React.Component {
                             </div>
                             <div className="login-footer">
 
-                                    {/*to={`/User?Name=${this.state.email}`}>*/}
-                                    <button
-                                        // onClick={event =>(!this.state.email || !this.state.password)? event.preventDefault():null}
-                                        type="submit"
-                                        className="btn"> Login
-                                    </button>
+                                <button
+                                    onClick={event =>(!this.state.name||!this.state.email || !this.state.password)? event.preventDefault():null}
+                                    type="submit"
+                                    className="btn"> Login
+                                </button>
 
 
                                 <Link to="/register" className={`btnRegister`}>Register</Link>

@@ -29,8 +29,9 @@ export const registerAdmin = newUser => {
 
 export const login = user => {
     return axios
-        .post('auth', {
+        .post(' http://localhost:5000/auth ', {
             email: user.email,
+            name: user.name,
             password: user.password
         })
         .then(response => {

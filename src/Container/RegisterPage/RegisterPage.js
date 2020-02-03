@@ -32,7 +32,13 @@ export default class RegisterPage extends Component {
         };
 
         register(newUser).then(res => {
-            this.props.history.push(`/`)
+            if (res) {
+                console.log(this.props);
+                this.props.history.push(`/User?Name=${this.state.name}`);
+
+            } else {
+                console.log(22);
+            }
         })
     }
 
@@ -86,16 +92,16 @@ export default class RegisterPage extends Component {
                             </div>
                             <div className="register-footer">
 
-                                    <button type="submit" className="btn">
-                                        Register
-                                    </button>
-
-
-
+                                <button
+                                    onClick={event => (!this.state.name || !this.state.surname || !this.state.email || !this.state.password) ? event.preventDefault() : null}
+                                    type="submit"
+                                    className="btn"
+                                >
+                                    Register
+                                </button>
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
 
