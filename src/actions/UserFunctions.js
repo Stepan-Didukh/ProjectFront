@@ -43,3 +43,16 @@ export const login = user => {
         })
 };
 
+export const createRoom = room => {
+    return axios
+        .post(' http://localhost:5000/room ', {
+            price: room.price,
+            square: room.square,
+            amount: room.amount
+        })
+
+        .catch(err => {
+            console.log(err)
+        })
+};
+

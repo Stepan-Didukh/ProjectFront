@@ -1,0 +1,42 @@
+.headerUser {
+    height: 112px;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: grey;
+}
+
+.main {
+    height: fit-content;
+    width: 100%;
+}
+
+.createNewRooms {
+    width: 80%;
+    box-shadow: 0 0 5px black;
+    height: 30rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    text-align: center;
+    background: black;
+}
+
+.h2 {
+    font-size: 2rem;
+    font-family: "Arial", sans-serif;
+    color: white;
+    padding: 1rem;
+}

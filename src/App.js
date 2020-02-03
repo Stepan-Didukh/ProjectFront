@@ -13,6 +13,7 @@ import RegisterPage from "./Container/RegisterPage/RegisterPage";
 import MainPage from "./Container/MainPage/MainPage";
 import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
 import Chat from "./Components/Chat/Chat";
+import AdminPage from "./Container/AdminPage/AdminPage";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
                 <Route  path="/support" component={Chat}/>
 
                 <Route  path="/User" component={MainPage}/>
+
+                <Route  path="/Admin" component={AdminPage}/>
 
                 <Route  path="/support" component={Chat}/>
 
