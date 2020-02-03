@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import './AdminPage.css'
-import '../LoginPage/Login.scss'
 import {Link} from "react-router-dom";
 import {Logo} from "../../Components/Logo/Logo";
 import {createRoom} from "../../actions/UserFunctions";
@@ -59,8 +58,9 @@ class AdminPage extends Component {
                 <main className={'main'}>
                     <div className={'createNewRooms'}>
                         <div className={'h2'}>Create new room</div>
-                        <form onSubmit={this.onSubmit}>
-                            <div className="form-group">
+                        <form createRoom onSubmit={this.onSubmit}>
+                            <div className={'inputBox'}>
+                            <div  className="form-group">
                                 <label htmlFor="price">Price</label>
                                 <input type="int"
                                        name="price"
@@ -83,6 +83,7 @@ class AdminPage extends Component {
                                        placeholder="amount"
                                        value={this.state.amount}
                                        onChange={this.onChange}/>
+                            </div>
                             </div>
                             <div className="login-footer">
 

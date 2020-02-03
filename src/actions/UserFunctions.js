@@ -50,6 +50,9 @@ export const createRoom = room => {
             square: room.square,
             amount: room.amount
         })
+        .then(response => {
+            response.message('CreateNewRoom')
+        })
 
         .catch(err => {
             console.log(err)
