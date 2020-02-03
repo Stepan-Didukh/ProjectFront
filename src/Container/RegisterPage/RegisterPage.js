@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {register} from "../../actions/UserFunctions";
 import './RegisterPage.css'
-import {Link} from "react-router-dom";
 
 export default class RegisterPage extends Component {
     constructor() {
@@ -86,13 +85,11 @@ export default class RegisterPage extends Component {
                                 </div>
                             </div>
                             <div className="register-footer">
-                                <Link
-                                    // onClick={event => (!this.state.name || !this.state.surname || !this.state.email || !this.state.password) ? event.preventDefault() : null}
-                                    to={`/User?Name=${this.state.name}`}>
+
                                     <button type="submit" className="btn">
                                         Register
                                     </button>
-                                </Link>
+
 
 
                             </div>

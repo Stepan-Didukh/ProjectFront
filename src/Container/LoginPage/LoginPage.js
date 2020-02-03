@@ -9,6 +9,7 @@ export default class Login extends React.Component {
         super();
         this.state = {
             email: '',
+            name: '',
             password: '',
             errors: {}
         };
@@ -26,6 +27,7 @@ export default class Login extends React.Component {
 
         const user = {
             email: this.state.email,
+            name: this.state.name,
             password: this.state.password
         };
 
@@ -49,6 +51,14 @@ export default class Login extends React.Component {
 
                                 <div className="form">
                                     <div className="form-group">
+                                        <label htmlFor="name">Name</label>
+                                        <input type="name"
+                                               name="name"
+                                               placeholder="name"
+                                               value={this.state.name}
+                                               onChange={this.onChange}/>
+                                    </div>
+                                    <div className="form-group">
                                         <label htmlFor="email">Email</label>
                                         <input type="email"
                                                name="email"
@@ -67,11 +77,14 @@ export default class Login extends React.Component {
                                 </div>
                             </div>
                             <div className="login-footer">
-                                <Link
-                                    // onClick={event =>(!this.state.email || !this.state.password)? event.preventDefault():null}
-                                    to={`/User?Name=${this.state.email}`}>
-                                    <button type="submit" className="btn"> Login</button>
-                                </Link>
+
+                                    {/*to={`/User?Name=${this.state.email}`}>*/}
+                                    <button
+                                        // onClick={event =>(!this.state.email || !this.state.password)? event.preventDefault():null}
+                                        type="submit"
+                                        className="btn"> Login
+                                    </button>
+
 
                                 <Link to="/register" className={`btnRegister`}>Register</Link>
                                 <Chat name={this.state.email}/>
