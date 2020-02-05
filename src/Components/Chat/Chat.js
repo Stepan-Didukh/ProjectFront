@@ -22,8 +22,10 @@ const useStyles = makeStyles(theme => ({
 const Chat = () => {
 
     const classes = useStyles();
-    const {allChats, sendAction, user} = React.useContext(CTX);
-    const topics = Object.keys(allChats);
+
+    const {allChats, sendAction} = React.useContext(CTX);
+    const topics= Object.keys(allChats);
+
     const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
     const [textValue, changeTextValue] = React.useState('');
 
@@ -54,7 +56,7 @@ const Chat = () => {
                         allChats[activeTopic].map((chat, i) => (
                             <div className={'display-flex name'} key={i}>
                                 <Chip label={chat.from} className={'classes_chip'}/>
-                                <Typography variant={'h5'}>{chat.msg}</Typography>
+                                <Typography variant={'h5'} component={'h5'}>{chat.msg}</Typography>
                             </div>
                         ))
                     }
@@ -76,7 +78,7 @@ const Chat = () => {
                         variant="contained"
                         color="primary"
                         onClick={()=>{
-                            sendAction({from: user, msg: textValue, topics: activeTopic});
+                            sendAction({from: "Stepan", msg: textValue, topic: activeTopic});
                             changeTextValue('');
                         }}
                     >Send</Button>
