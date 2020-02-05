@@ -17,3 +17,17 @@
 .nav-link:hover{
     color: grey;
 }
+
+.display-flex{
+    display: flex;
+}
+
+.context_box{
+    width: 100%;
+    background: #8c8c8c;
+    margin: 0.5rem;
+}
+
+main{
+    width: 100%;
+}

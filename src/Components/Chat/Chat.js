@@ -1,10 +1,9 @@
 import './Chat.css'
 import React from "react";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+// import List from '@material-ui/core/List';
+// import ListItem from '@material-ui/core/ListItem';
+// import ListItemText from '@material-ui/core/ListItemText';
 import Chip from "@material-ui/core/Chip";
-import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -15,48 +14,35 @@ const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: 400,
+            width: 200,
         },
     },
 }));
-const Chat = () => {
+const Chat = (props) => {
 
     const classes = useStyles();
 
     const {allChats, sendAction} = React.useContext(CTX);
-    const topics= Object.keys(allChats);
+    const topics = Object.keys(allChats);
 
-    const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
+    const [activeTopic] = React.useState(topics[0]);
     const [textValue, changeTextValue] = React.useState('');
+
+    const Name = props.parsed.Name;
+    console.log(Name);
 
     return (
         <div className={'chat'}>
-            <div className={'header-chat'}>Chat app  ({activeTopic})</div>
+            <div className={'header-chat'}>Ask me</div>
 
             <div className={'display-flex'}>
-                <div className={'classesTopicsWindow'}>
-                    <List>
-                        {
-                            topics.map(topic => (
-                                <ListItem
-                                    onClick={e=>changeActiveTopic(e.target.innerText)}
-                                    key={topic} button>
 
-                                    <ListItemText primary={topic}>
-
-                                    </ListItemText>
-                                </ListItem>
-                            ))
-                        }
-
-                    </List>
-                </div>
                 <div className={'classesChatWindow'}>
                     {
                         allChats[activeTopic].map((chat, i) => (
                             <div className={'display-flex name'} key={i}>
                                 <Chip label={chat.from} className={'classes_chip'}/>
-                                <Typography variant={'h5'} component={'h5'}>{chat.msg}</Typography>
+                                <div>{chat.msg}</div>
                             </div>
                         ))
                     }
@@ -77,8 +63,8 @@ const Chat = () => {
                     <Button
                         variant="contained"
                         color="primary"
-                        onClick={()=>{
-                            sendAction({from: "Stepan", msg: textValue, topic: activeTopic});
+                        onClick={() => {
+                            sendAction({from: Name, msg: textValue, topic: activeTopic});
                             changeTextValue('');
                         }}
                     >Send</Button>

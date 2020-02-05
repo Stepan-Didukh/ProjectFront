@@ -1,12 +1,9 @@
 .chat {
-    width: 70%;
+    width: 27rem;
     box-shadow: 0 0 5px black;
-    height: fit-content;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    height: 30rem;
     border-radius: 0.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
+    margin: 0.5rem;
     background: white;
 }
 
@@ -51,12 +48,14 @@
 }
 
 .classesChatWindow {
-    width: 70%;
-    background: white;
+    width: 100%;
+    height: 22.5rem;
     border-radius: 0.5rem;
+    overflow: auto;
 }
 
 .btnBox{
     height: 2rem;
+    margin-top: 0.5rem;
 }
 

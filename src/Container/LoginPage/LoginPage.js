@@ -4,15 +4,15 @@ import {Link} from 'react-router-dom';
 import {login} from '../../actions/UserFunctions'
 
 export default class Login extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             email: '',
             name: '',
             password: '',
             errors: {}
         };
-
+        console.log(props);
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -40,7 +40,6 @@ export default class Login extends React.Component {
     render() {
 
         return (
-
             <div className='loginRegister'>
                 <div className='container'>
                     <form noValidate onSubmit={this.onSubmit}>
@@ -77,14 +76,14 @@ export default class Login extends React.Component {
                             <div className="login-footer">
 
                                 <button
-                                    onClick={event =>(!this.state.name||!this.state.email || !this.state.password)? event.preventDefault():null}
+                                    onClick={event => (!this.state.name || !this.state.email || !this.state.password) ? event.preventDefault() : null}
                                     type="submit"
                                     className="btn"> Login
                                 </button>
 
 
                                 <Link to="/register" className={`btnRegister`}>Register</Link>
-                             </div>
+                            </div>
                         </div>
                     </form>
                 </div>

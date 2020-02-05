@@ -6,11 +6,9 @@ export const CTX = React.createContext('');
 const initState = {
     general: [
         {from: 'Stepan', msg: 'Hello!'},
-        {from: 'Stepan', msg: 'Hello!'},
         {from: 'Oleh', msg: 'Hello!'},
     ],
     topic2: [
-        {from: 'Stepan', msg: 'Hello!'},
         {from: 'Stepan', msg: 'Hello!'},
         {from: 'Oleh', msg: 'Hello!'},
     ]
