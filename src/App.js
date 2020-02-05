@@ -14,6 +14,7 @@ import MainPage from "./Container/MainPage/MainPage";
 import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
 import Chat from "./Components/Chat/Chat";
 import AdminPage from "./Container/AdminPage/AdminPage";
+import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
 
                 <Route  path="/login" component={LoginPage}/>
 
+                <Route  path="/loginAdmin" component={LoginAdminPage}/>
+
                 <Route  path="/register"><RegisterPage/></Route>
 
                 <Route  path="/support" component={Chat}/>
@@ -33,8 +36,6 @@ function App() {
                 <Route  path="/User" component={MainPage}/>
 
                 <Route  path="/Admin" component={AdminPage}/>
-
-                <Route  path="/support" component={Chat}/>
 
                 <Route path="/registerAdmin" component={RegisterAdminPage}/>
 

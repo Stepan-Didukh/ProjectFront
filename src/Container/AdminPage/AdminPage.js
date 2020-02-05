@@ -3,6 +3,8 @@ import './AdminPage.css'
 import {Link} from "react-router-dom";
 import {Logo} from "../../Components/Logo/Logo";
 import {createRoom} from "../../actions/UserFunctions";
+import Chat from "../../Components/Chat/Chat";
+import Store from "../../Reducers/ChatStore/ChatStore";
 
 class AdminPage extends Component {
 
@@ -34,7 +36,7 @@ class AdminPage extends Component {
 
         createRoom(room).then(res => {
             if (res) {
-                alert('All was done!')
+                console.log(22);
             }
         })
     }
@@ -51,7 +53,6 @@ class AdminPage extends Component {
             <div>
                 <div className={'headerUser'}>
                     <Logo/>
-                    <Link className="nav-link" to={'/support'}>Support</Link>
                     <Link onClick={this.logOut.bind(this)} className="nav-link" to={''}>Logout</Link>
                 </div>
 
@@ -95,6 +96,9 @@ class AdminPage extends Component {
                             </div>
                         </form>
                     </div>
+                    <Store>
+                    <Chat/>
+                    </Store>
                 </main>
 
             </div>
