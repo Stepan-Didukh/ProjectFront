@@ -1,0 +1,42 @@
+.header-user {
+    display: flex;
+    align-items: center;
+    height: 112px;
+    box-shadow: 0 0 5px black;
+    justify-content: space-around;
+    background: black;
+}
+
+
+.All_Users {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.5rem;
+}
+
+.UserCart {
+    display: flex;
+    width: 97%;
+    justify-content: space-around;
+    margin-top: 2rem;
+    height: 4rem;
+    background: black;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px black;
+    align-items: center;
+}
+
+.paramUser {
+    color: white;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+.loading {
+    width: 100%;
+    margin-left: 40%;
+    align-items: center;
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+}

@@ -1,17 +1,21 @@
 import React, {Component} from "react";
 import {Header} from "../../Components/Header/Header";
 import './HomePage.css'
+import CircularProgress from "@material-ui/core/CircularProgress";
+import {connect} from "react-redux";
+import {Room} from "../../actions/getRoom";
 
 
 class HomePage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             scrolled: false
         }
     }
 
     componentDidMount() {
+        this.props.fetchData("http://localhost:5000/room/findAll");
         window.addEventListener('scroll', () => {
             const isTop = window.scrollY < 10;
             if (isTop !== true) {
@@ -23,7 +27,8 @@ class HomePage extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll',()=>{});
+        window.removeEventListener('scroll', () => {
+        });
     }
 
     render() {
@@ -34,9 +39,22 @@ class HomePage extends Component {
 
                 <div className='Photo_box'>
                 </div>
+                <ul>
+                    {this.props.rooms ?
+                        this.props.rooms.map((room) => {
+                            return <li
+                                key={room.id}
+                                className={'UserCart'}>
+                                <div className={'paramUser'}>Name: {room.price}</div>
+                                <div className={'paramUser'}>Surname: {room.square}</div>
+                                <div className={'paramUser'}>Email: {room.amount}</div>
+                            </li>
+                        }) : <div className={'loading'}>
+                            <CircularProgress/>
 
-
-
+                        </div>
+                    }
+                </ul>
             </div>
 
         )
@@ -44,4 +62,19 @@ class HomePage extends Component {
 
 }
 
-export default HomePage;
+const mapStateToProps = (store) => {
+    console.log(store);
+    return {
+        rooms: store.HotelReducer.rooms
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: url => dispatch(Room(url))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+

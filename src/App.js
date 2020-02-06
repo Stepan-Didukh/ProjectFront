@@ -15,6 +15,7 @@ import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
 import AdminPage from "./Container/AdminPage/AdminPage";
 import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
 import UserList from "./Components/UserList/UserList";
+import RoomList from "./Components/RoomList/RoomList";
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
                 <Route  path="/register"><RegisterPage/></Route>
 
                 <Route  path="/UserList" component={UserList}/>
+
+                <Route  path="/RoomList" component={RoomList}/>
 
                 <Route  path="/User" component={MainPage}/>
 

@@ -64,6 +64,10 @@ class AdminPage extends Component {
                         className="nav-link"
                     >Users</Link>
                     <Link
+                        to={`/RoomList`}
+                        className="nav-link"
+                    >Room</Link>
+                    <Link
                         onClick={this.logOut.bind(this)}
                         className="nav-link"
                         to={''}

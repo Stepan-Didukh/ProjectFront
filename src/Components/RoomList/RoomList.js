@@ -1,18 +1,19 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {User} from "../../actions/getUser";
 import {Logo} from "../Logo/Logo";
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import './ListUser.css'
-import {User} from "../../actions/getUser";
+import {Room} from "../../actions/getRoom";
 
-class UserList extends Component {
+
+class RoomList extends Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.fetchData("/user/findAllUser");
+        this.props.fetchData("http://localhost:5000/room/findAll");
     }
 
     render() {
@@ -21,7 +22,7 @@ class UserList extends Component {
             <div className={'listUser'}>
                 <div className={'header-user'}>
                     <Logo/>
-                    <div className={'All_Users'}>All Users!</div>
+                    <div className={'All_Users'}>All Room!</div>
 
                     <Button
                         variant="outlined"
@@ -29,22 +30,21 @@ class UserList extends Component {
                         onClick={this.props.history.goBack}
                     >goBack</Button>
 
-
                 </div>
 
                 <ul>
-                    {this.props.users ?
-                        this.props.users.map((person) => {
+                    {this.props.rooms ?
+                        this.props.rooms.map((room) => {
                             return <li
-                                key={person.id}
+                                key={room.id}
                                 className={'UserCart'}>
-                                <div className={'paramUser'}>Name: {person.name}</div>
-                                <div className={'paramUser'}>Surname: {person.surname}</div>
-                                <div className={'paramUser'}>Email: {person.email}</div>
+                                <div className={'paramUser'}>Price: {room.price}</div>
+                                <div className={'paramUser'}>Square: {room.square}</div>
+                                <div className={'paramUser'}>Amount: {room.amount}</div>
                             </li>
                         }) : <div className={'loading'}>
                             <CircularProgress />
-                        </div>
+                     </div>
                     }
 
                 </ul>
@@ -56,14 +56,14 @@ class UserList extends Component {
 const mapStateToProps = (store) => {
     console.log(store);
     return {
-        users: store.HotelReducer.users
+        rooms: store.HotelReducer.rooms
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: url => dispatch(User(url))
+        fetchData: url => dispatch(Room(url))
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps)(RoomList);
