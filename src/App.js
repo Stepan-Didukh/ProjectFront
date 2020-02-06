@@ -14,7 +14,7 @@ import MainPage from "./Container/MainPage/MainPage";
 import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
 import AdminPage from "./Container/AdminPage/AdminPage";
 import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
-import UserList from "./Components/main/UserList";
+import UserList from "./Components/UserList/UserList";
 
 
 function App() {
