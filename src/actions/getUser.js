@@ -12,7 +12,7 @@ export function User(url) {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(response.statusText)
+                    throw new Error(response.statusText);
                 }
                 return response;
             })
