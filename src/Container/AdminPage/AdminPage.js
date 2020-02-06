@@ -6,10 +6,13 @@ import {createRoom} from "../../actions/UserFunctions";
 import Chat from "../../Components/Chat/Chat";
 import Store from "../../Reducers/ChatStore/ChatStore";
 
+const queryString = require('query-string');
+
 class AdminPage extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
         this.state = {
             price: '',
             square: '',
@@ -49,56 +52,69 @@ class AdminPage extends Component {
     }
 
     render() {
+
+        const parsed = queryString.parse(this.props.location.search);
+
         return (
             <div>
                 <div className={'headerUser'}>
                     <Logo/>
-                    <Link onClick={this.logOut.bind(this)} className="nav-link" to={''}>Logout</Link>
+                    <Link
+                        to={`/UserList`}
+                        className="nav-link"
+                    >Users</Link>
+                    <Link
+                        onClick={this.logOut.bind(this)}
+                        className="nav-link"
+                        to={''}
+                    >Logout</Link>
                 </div>
 
                 <main className={'main'}>
-                    <div className={'createNewRooms'}>
-                        <div className={'h2'}>Create new room</div>
-                        <form createRoom onSubmit={this.onSubmit}>
-                            <div className={'inputBox'}>
-                            <div  className="form-group">
-                                <label htmlFor="price">Price</label>
-                                <input type="int"
-                                       name="price"
-                                       placeholder="price"
-                                       value={this.state.price}
-                                       onChange={this.onChange}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="square">Square</label>
-                                <input type="int"
-                                       name="square"
-                                       placeholder="square"
-                                       value={this.state.square}
-                                       onChange={this.onChange}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="amount">Amount</label>
-                                <input type="int"
-                                       name="amount"
-                                       placeholder="amount"
-                                       value={this.state.amount}
-                                       onChange={this.onChange}/>
-                            </div>
-                            </div>
-                            <div className="login-footer">
+                    <div className={'display-flex'}>
+                        <div className={'createNewRooms'}>
+                            <div className={'h2'}>Create new room</div>
+                            <form createRoom onSubmit={this.onSubmit}>
+                                <div className={'inputBox'}>
+                                    <div className="form-group">
+                                        <label htmlFor="price">Price</label>
+                                        <input type="int"
+                                               name="price"
+                                               placeholder="price"
+                                               value={this.state.price}
+                                               onChange={this.onChange}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="square">Square</label>
+                                        <input type="int"
+                                               name="square"
+                                               placeholder="square"
+                                               value={this.state.square}
+                                               onChange={this.onChange}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="amount">Amount</label>
+                                        <input type="int"
+                                               name="amount"
+                                               placeholder="amount"
+                                               value={this.state.amount}
+                                               onChange={this.onChange}/>
+                                    </div>
+                                </div>
+                                <div className="login-footer">
 
-                                <button
-                                    onClick={event => (!this.state.amount || !this.state.price || !this.state.square) ? event.preventDefault() : null}
-                                    type="submit"
-                                    className="btn"> Register
-                                </button>
-                            </div>
-                        </form>
+                                    <button
+                                        onClick={event => (!this.state.amount || !this.state.price || !this.state.square) ? event.preventDefault() : null}
+                                        type="submit"
+                                        className="btn"> Register
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <Store>
+                            <Chat parsed={parsed}/>
+                        </Store>
                     </div>
-                    <Store>
-                    <Chat/>
-                    </Store>
                 </main>
 
             </div>

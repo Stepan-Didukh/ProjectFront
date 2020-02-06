@@ -29,7 +29,6 @@ const Chat = (props) => {
     const [textValue, changeTextValue] = React.useState('');
 
     const Name = props.parsed.Name;
-    console.log(Name);
 
     return (
         <div className={'chat'}>

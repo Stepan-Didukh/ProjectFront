@@ -12,9 +12,9 @@ import LoginPage from "./Container/LoginPage/LoginPage";
 import RegisterPage from "./Container/RegisterPage/RegisterPage";
 import MainPage from "./Container/MainPage/MainPage";
 import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
-import Chat from "./Components/Chat/Chat";
 import AdminPage from "./Container/AdminPage/AdminPage";
 import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
+import UserList from "./Components/main/UserList";
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
 
                 <Route  path="/register"><RegisterPage/></Route>
 
-                <Route  path="/support" component={Chat}/>
+                <Route  path="/UserList" component={UserList}/>
 
                 <Route  path="/User" component={MainPage}/>
 

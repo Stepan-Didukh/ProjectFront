@@ -19,4 +19,4 @@ export const Header = (props) => {
             <Link className={`${HR}_link`} to={'/register'}>Sign up</Link>
         </header>
     )
-}
+};

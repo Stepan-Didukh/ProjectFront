@@ -10,12 +10,7 @@ const queryString = require('query-string');
 class MainPage extends Component {
     constructor(props) {
         super(props);
-            const parsed = queryString.parse(props.location.search);
-        console.log(props);
-        console.log(parsed);
     }
-
-
 
     logOut(e) {
         e.preventDefault();
