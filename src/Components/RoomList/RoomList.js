@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Logo} from "../Logo/Logo";
 import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Room} from "../../actions/getRoom";
-
 
 class RoomList extends Component {
     constructor(props) {
@@ -16,7 +16,6 @@ class RoomList extends Component {
     }
 
     render() {
-
         return (
             <div className={'listUser'}>
                 <div className={'header-user'}>
@@ -40,6 +39,13 @@ class RoomList extends Component {
                                 <div className={'paramUser'}>Price: {room.price}</div>
                                 <div className={'paramUser'}>Square: {room.square}</div>
                                 <div className={'paramUser'}>Amount: {room.amount}</div>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<DeleteIcon />}
+                                >
+                                    Delete
+                                </Button>
                             </li>
                         }) : <div className={'loading'}>
                             <CircularProgress />
