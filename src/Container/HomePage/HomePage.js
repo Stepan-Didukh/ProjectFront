@@ -39,15 +39,16 @@ class HomePage extends Component {
 
                 <div className='Photo_box'>
                 </div>
+
                 <ul>
                     {this.props.rooms ?
                         this.props.rooms.map((room) => {
                             return <li
                                 key={room.id}
                                 className={'UserCart'}>
-                                <div className={'paramUser'}>Name: {room.price}</div>
-                                <div className={'paramUser'}>Surname: {room.square}</div>
-                                <div className={'paramUser'}>Email: {room.amount}</div>
+                                <div className={'paramUser'}>Price: {room.price}</div>
+                                <div className={'paramUser'}>Square: {room.square}</div>
+                                <div className={'paramUser'}>Amount: {room.amount}</div>
                             </li>
                         }) : <div className={'loading'}>
                             <CircularProgress/>
