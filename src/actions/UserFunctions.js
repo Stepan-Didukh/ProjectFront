@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {Room} from './getRoom'
 export const register = newUser => {
     return axios
         .post(' http://localhost:5000/user ', {
