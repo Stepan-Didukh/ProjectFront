@@ -32,13 +32,13 @@ function App() {
 
                 <Route  path="/register"><RegisterPage/></Route>
 
-                <Route  path="/UserList" component={UserList}/>
+                <Route  path="/userList" component={UserList}/>
 
-                <Route  path="/RoomList" component={RoomList}/>
+                <Route  path="/roomList" component={RoomList}/>
 
                 <Route  path="/User" component={MainPage}/>
 
-                <Route  path="/Admin" component={AdminPage}/>
+                <Route  path="/admin" component={AdminPage}/>
 
                 <Route path="/registerAdmin" component={RegisterAdminPage}/>
 
@@ -60,3 +60,4 @@ function App() {
 }
 
 export default App;
+
