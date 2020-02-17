@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Logo} from "../Logo/Logo";
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './ListUser.css'
@@ -20,7 +19,7 @@ class UserList extends Component {
         return (
             <div className={'listUser'}>
                 <div className={'header-user'}>
-                    <Logo/>
+
                     <div className={'All_Users'}>All Users!</div>
 
                     <Button

@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {Room} from './getRoom'
 export const register = newUser => {
     return axios
         .post(' http://localhost:5000/user ', {
@@ -48,7 +47,10 @@ export const createRoom = room => {
         .post(' http://localhost:5000/room ', {
             price: room.price,
             square: room.square,
-            amount: room.amount
+            amount: room.amount,
+            nameRoom: room.nameRoom,
+            about: room.about,
+            park: room.park,
         })
         .then(response => {
             response.message('CreateNewRoom')

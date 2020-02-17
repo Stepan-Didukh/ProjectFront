@@ -1,51 +1,64 @@
-.Components-header {
-    height: 112px;
+.Header {
+    height: 120px;
     width: 100%;
+    align-items: center;
+    transition: 0.5s;
+    box-shadow: 0 0 5px black;
+    border-bottom: 5px solid darkgoldenrod;
     display: flex;
     justify-content: space-around;
-    background: none;
-    align-items: center;
-    position: absolute;
-    box-shadow:  0 0 5px black;
+    position: fixed;
+    background-color: rgba(240, 255, 255, 0.7)
 }
 
-.Logo_box{
-    align-items: center;
-    width: 15rem;
+.scroller {
+    height: 90px;
+    margin-top: 0;
+    transition: 0.5s;
+    position: fixed;
+    background: white;
+    opacity: 100;
 }
-.display-flex{
+
+.LogoHeader {
+    text-decoration: none;
+    width: fit-content;
+    color: black;
+    font-size: 3rem;
+    font-family: 'Cambria Math', sans-serif;
+}
+
+.Logo_lviv {
+    font-size: 1.3rem;
     display: flex;
+    justify-content: space-around;
 }
 
-.Small_logo{
-    color: white;
-    font-size: 0.7rem;
-    font-family: "Comic Sans MS",sans-serif;
-    margin-left: 0.4rem;
+.Authentications_Box {
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.Logo_photo{
-    background-image: url("../../assets/Love PNG Love PNGTREE.png");
-    background-size: 100%;
-    height: 47px;
-    width: 63px;
-}
-
-.Components-header_link {
-    text-decoration: none;
-    color: white;
+.Authentications_link {
+    color: black;
     font-size: 1.5rem;
-}
-
-.Components-header_link:hover,
-.Components-header_Logo:hover{
-    color: #8c8c8c;
-}
-
-.Components-header_Logo{
+    font-family: "Comic Sans MS", sans-serif;
     text-decoration: none;
-    color: white;
-    font-size: 2.2rem;
-    font-family: Cambria, sans-serif;
-    margin-top: 0.6rem;
+}
+
+.Phone_Number {
+    font-size: 1.3rem;
+    margin-left: 0.3rem;
+}
+
+.Contact {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.Authentications_link:hover,
+.LogoHeader:hover {
+    text-shadow: 0 0 2px grey;
 }

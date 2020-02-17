@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Logo} from "../Logo/Logo";
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Room} from "../../actions/getRoom";
-// import {deleteRoom} from "../../actions/deleteRoom";
 import axios from "axios";
+
 class RoomList extends Component {
     // static context
     constructor(props) {
@@ -17,18 +16,15 @@ class RoomList extends Component {
         this.props.fetchData("http://localhost:5000/room/findAll");
     }
 
+    NextPage = ()=>{
+        console.log(this.props);
+        this.props.history.push()
+    };
+
      deleteRoom = id => {
 
         return  axios
             .delete(`http://localhost:5000/room/${id}`) // <-- remove ;
-
-            .then(
-                ()=>{
-                    console.log(this.props);
-                    this.props.history.push('/RoomList')
-
-                }
-            )
             .catch(err => {
                 console.error(err);
             });
@@ -38,7 +34,7 @@ class RoomList extends Component {
         return (
             <div className={'listUser'}>
                 <div className={'header-user'}>
-                    <Logo/>
+
                     <div className={'All_Users'}>All Room!</div>
 
                     <Button
@@ -49,7 +45,7 @@ class RoomList extends Component {
 
                 </div>
 
-                <ul>
+                <ul className={'RoomList'}>
                     {this.props.rooms ?
                         this.props.rooms.map((room) => {
                             return <li
@@ -59,6 +55,9 @@ class RoomList extends Component {
                                 <div className={'paramUser'}>Square: {room.square}</div>
                                 <div className={'paramUser'}>Amount: {room.amount}</div>
                                 <div className={'paramUser'}>ID: {room.id}</div>
+                                <div className={'link_MovieInfo'}>
+                                    <a href={`/Room/${room.id}`}>More info</a>
+                                </div>
                                 <Button
                                     variant="contained"
                                     color="secondary"

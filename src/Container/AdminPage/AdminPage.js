@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import './AdminPage.css'
 import {Link} from "react-router-dom";
-import {Logo} from "../../Components/Logo/Logo";
 import {createRoom} from "../../actions/UserFunctions";
 import Chat from "../../Components/Chat/Chat";
 import Store from "../../Reducers/ChatStore/ChatStore";
@@ -17,6 +16,9 @@ class AdminPage extends Component {
             price: '',
             square: '',
             amount: '',
+            nameRoom: '',
+            about: '',
+            park: '',
             errors: {}
         };
 
@@ -34,7 +36,10 @@ class AdminPage extends Component {
         const room = {
             price: this.state.price,
             square: this.state.square,
-            amount: this.state.amount
+            amount: this.state.amount,
+            nameRoom: this.state.nameRoom,
+            about: this.state.about,
+            park: this.state.park,
         };
 
         createRoom(room).then(res => {
@@ -58,7 +63,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <div className={'headerUser'}>
-                    <Logo/>
+
                     <Link
                         to={`/UserList`}
                         className="nav-link"
@@ -80,6 +85,30 @@ class AdminPage extends Component {
                             <div className={'h2'}>Create new room</div>
                             <form createRoom onSubmit={this.onSubmit}>
                                 <div className={'inputBox'}>
+                                    <div className="form-group">
+                                        <label htmlFor="nameRoom">nameRoom</label>
+                                        <input type="text"
+                                               name="nameRoom"
+                                               placeholder="nameRoom"
+                                               value={this.state.nameRoom}
+                                               onChange={this.onChange}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="park">park</label>
+                                        <input type="text"
+                                               name="park"
+                                               placeholder="park"
+                                               value={this.state.park}
+                                               onChange={this.onChange}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="about">about</label>
+                                        <input type="int"
+                                               name="about"
+                                               placeholder="about"
+                                               value={this.state.about}
+                                               onChange={this.onChange}/>
+                                    </div>
                                     <div className="form-group">
                                         <label htmlFor="price">Price</label>
                                         <input type="int"
@@ -108,7 +137,7 @@ class AdminPage extends Component {
                                 <div className="login-footer">
 
                                     <button
-                                        onClick={event => (!this.state.amount || !this.state.price || !this.state.square) ? event.preventDefault() : null}
+                                        onClick={event => (!this.state.amount || !this.state.price || !this.state.square || !this.state.nameRoom || !this.state.about) ? event.preventDefault() : null}
                                         type="submit"
                                         className="btn"> Register
                                     </button>

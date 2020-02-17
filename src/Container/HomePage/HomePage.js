@@ -1,70 +1,93 @@
 import React, {Component} from "react";
-import {Header} from "../../Components/Header/Header";
-import './HomePage.css'
+import Header from "../../Components/Header/Header";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import HotelIcon from '@material-ui/icons/Hotel';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import {connect} from "react-redux";
 import {Room} from "../../actions/getRoom";
-
+import Photo from '../../assets/westindtla.jpg'
+import './HomePage.css'
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            scrolled: false
-        }
     }
 
     componentDidMount() {
         this.props.fetchData("http://localhost:5000/room/findAll");
-        window.addEventListener('scroll', () => {
-            const isTop = window.scrollY < 10;
-            if (isTop !== true) {
-                this.setState({scroller: true});
-            } else {
-                this.setState({scroller: false});
-            }
-        })
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', () => {
-        });
     }
 
     render() {
 
         return (
             <div>
-                <Header className={this.state.scroller ? 'scroller header' : 'header'}/>
+                <Header/>
 
-                <div className='Photo_box'>
-                </div>
+                <img
+                    className={'Photo_Box'}
+                    src={Photo}
+                    alt="Photo"
+                />
 
-                <ul>
+                <div className={'ListRoom_Home_Page'}>
                     {this.props.rooms ?
                         this.props.rooms.map((room) => {
                             return <li
                                 key={room.id}
-                                className={'UserCart'}>
-                                <div className={'paramUser'}>Price: {room.price}</div>
-                                <div className={'paramUser'}>Square: {room.square}</div>
-                                <div className={'paramUser'}>Amount: {room.amount}</div>
-                            </li>
-                        }) : <div className={'loading'}>
-                            <CircularProgress/>
+                                className={'RoomCart'}>
+                                <div className={'Room-Photo'}>
+                                    {/*Тут має бути фотка кімнати!*/}
+                                </div>
+                                <div className={'Main_info_Room'}>
+                                    <div className={'Name-Room'}>{room.nameRoom}</div>
+                                    <div className={'Param_Room'}>Площа: {room.square} ( м2 ) {10.764 * room.square} (
+                                        фут2 )
+                                    </div>
+                                    <div className={'display-flex'}>
+                                        <HotelIcon/>
+                                        <div className={'Param_Room'}> {room.amount}</div>
+                                        <LocalParkingIcon className={'margin'}/>
+                                        <div className={'Param_Room'}> {room.park}</div>
+                                    </div>
+                                    <div className={'About_Room'}>
+                                        {room.about}
+                                    </div>
+                                    <div className={'Some_Options'}>
+                                        <div className={'display-flex'}>
+                                            <CheckCircleOutlineIcon/>
+                                            <div className={'Param_Room'}>Free Wifi</div>
+                                        </div>
+                                        <div className={'display-flex'}>
+                                            <CheckCircleOutlineIcon/>
+                                            <div className={'Param_Room'}>TV</div>
+                                        </div>
+                                        <div className={'display-flex'}>
+                                            <CheckCircleOutlineIcon/>
+                                            <div className={'Param_Room'}>Mini Bar</div>
+                                        </div>
 
+                                    </div>
+
+                                </div>
+                                <div className={'Price-Box'}>
+                                    From: <div className={'Price_Room'}>{room.price} UAH
+                                </div>
+                                </div>
+
+                            </li>
+                        }) : <div className={'loading_Room'}>
+                            <CircularProgress/>
                         </div>
                     }
-                </ul>
+                </div>
             </div>
-
         )
     }
-
 }
 
+
 const mapStateToProps = (store) => {
-    console.log(store);
     return {
         rooms: store.HotelReducer.rooms
     };

@@ -16,6 +16,7 @@ import AdminPage from "./Container/AdminPage/AdminPage";
 import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
 import UserList from "./Components/UserList/UserList";
 import RoomList from "./Components/RoomList/RoomList";
+import RoomInfo from "./Container/RoomInfo/RoomInfo";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
                 <Route  path="/loginAdmin" component={LoginAdminPage}/>
 
                 <Route  path="/register"><RegisterPage/></Route>
+
+                <Route path="/Room/:RoomID" component={RoomInfo}/>
 
                 <Route  path="/userList" component={UserList}/>
 
