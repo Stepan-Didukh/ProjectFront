@@ -1,13 +1,8 @@
 import React, {Component} from "react";
-import './AdminPage.css'
-import {Link} from "react-router-dom";
+import './AddRoom.css'
 import {createRoom} from "../../actions/UserFunctions";
-import Chat from "../../Components/Chat/Chat";
-import Store from "../../Reducers/ChatStore/ChatStore";
 
-const queryString = require('query-string');
-
-class AdminPage extends Component {
+class AddRoom extends Component {
 
     constructor(props) {
         super(props);
@@ -49,35 +44,10 @@ class AdminPage extends Component {
         })
     }
 
-
-    logOut(e) {
-        e.preventDefault();
-        localStorage.removeItem('token');
-        this.props.history.push('/');
-    }
-
     render() {
-
-        const parsed = queryString.parse(this.props.location.search);
 
         return (
             <div>
-                <div className={'headerUser'}>
-
-                    <Link
-                        to={`/UserList`}
-                        className="nav-link"
-                    >Users</Link>
-                    <Link
-                        to={`/RoomList`}
-                        className="nav-link"
-                    >Room</Link>
-                    <Link
-                        onClick={this.logOut.bind(this)}
-                        className="nav-link"
-                        to={''}
-                    >Logout</Link>
-                </div>
 
                 <main className={'main'}>
                     <div className={'display-flex'}>
@@ -144,9 +114,6 @@ class AdminPage extends Component {
                                 </div>
                             </form>
                         </div>
-                        <Store>
-                            <Chat parsed={parsed}/>
-                        </Store>
                     </div>
                 </main>
 
@@ -157,4 +124,4 @@ class AdminPage extends Component {
 
 }
 
-export default AdminPage;
+export default AddRoom;

@@ -1,12 +1,9 @@
 import './Chat.css'
 import React from "react";
-// import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
-// import ListItemText from '@material-ui/core/ListItemText';
 import Chip from "@material-ui/core/Chip";
-import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import SendIcon from '@material-ui/icons/Send';
 
 import {CTX} from "../../Reducers/ChatStore/ChatStore";
 
@@ -32,7 +29,9 @@ const Chat = (props) => {
 
     return (
         <div className={'chat'}>
-            <div className={'header-chat'}>Ask me</div>
+            <div className={'header-chat'}>{Name}
+
+            </div>
 
             <div className={'display-flex'}>
 
@@ -51,7 +50,6 @@ const Chat = (props) => {
             <div className={`display-flex mesaggeBox`}>
                 <form className={classes.root} noValidate autoComplete="off">
                     <TextField
-                        id="standard-basic"
                         label="Send a chat"
                         value={textValue}
                         onChange={e => changeTextValue(e.target.value)}
@@ -59,14 +57,13 @@ const Chat = (props) => {
 
                 </form>
                 <div className={'btnBox'}>
-                    <Button
-                        variant="contained"
-                        color="primary"
+                    <button
+                        className={'SendMsg'}
                         onClick={() => {
                             sendAction({from: Name, msg: textValue, topic: activeTopic});
                             changeTextValue('');
                         }}
-                    >Send</Button>
+                    ><SendIcon/></button>
                 </div>
 
             </div>

@@ -4,35 +4,61 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import HotelIcon from '@material-ui/icons/Hotel';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
+import {Footer} from "../../Components/Footer/Footer";
 import {connect} from "react-redux";
 import {Room} from "../../actions/getRoom";
 import Photo from '../../assets/westindtla.jpg'
 import './HomePage.css'
+import axios from "axios";
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
+
     }
 
     componentDidMount() {
         this.props.fetchData("http://localhost:5000/room/findAll");
     }
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        if (nextProps.rooms !== 0) {
+            return true
+        }
+    }
+
+    deleteRoom = id => {
+        return axios
+            .delete(`http://localhost:5000/room/${id}`)
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
+
     render() {
+
+        const pushHomePage = this.props.history;
+
+        const Rooms = this.props.rooms;
 
         return (
             <div>
-                <Header/>
+                <Header pushHomePage={pushHomePage}/>
 
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img
                     className={'Photo_Box'}
                     src={Photo}
                     alt="Photo"
                 />
 
+
                 <div className={'ListRoom_Home_Page'}>
-                    {this.props.rooms ?
-                        this.props.rooms.map((room) => {
+
+                    {Rooms ?
+                        Rooms.map((room) => {
                             return <li
                                 key={room.id}
                                 className={'RoomCart'}>
@@ -70,17 +96,49 @@ class HomePage extends Component {
                                     </div>
 
                                 </div>
-                                <div className={'Price-Box'}>
-                                    From: <div className={'Price_Room'}>{room.price} UAH
-                                </div>
-                                </div>
+                                <div>
+                                    <div className={'Price-Box'}>
+                                        24h from: <div className={'Price_Room'}>{room.price} UAH
+                                    </div>
 
+                                    </div>
+                                    {
+                                        localStorage.token ?
+                                            <div className={'Control_Btn Reserve'}>
+                                                Reserve
+                                            </div> : ""
+                                    }
+                                    {
+                                        this.props.location.pathname === `/Admin` && localStorage.token ?
+
+                                            <div className={'Control_Room'}>
+                                                <div
+                                                    className={`Control_Btn Delete`}
+                                                    onClick={() => {
+                                                        this.deleteRoom(room.id).then(() => {
+                                                        })
+                                                    }}
+                                                >
+                                                    Delete {room.id}
+                                                </div>
+                                                <div
+
+                                                    className={'Control_Btn Update'}
+                                                >
+                                                    Update
+                                                </div>
+                                            </div> : ''
+
+
+                                    }
+                                </div>
                             </li>
                         }) : <div className={'loading_Room'}>
                             <CircularProgress/>
                         </div>
                     }
                 </div>
+                <Footer/>
             </div>
         )
     }
@@ -94,6 +152,7 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+
     return {
         fetchData: url => dispatch(Room(url))
     }

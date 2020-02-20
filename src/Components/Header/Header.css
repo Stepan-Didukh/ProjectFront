@@ -4,7 +4,7 @@
     align-items: center;
     transition: 0.5s;
     box-shadow: 0 0 5px black;
-    border-bottom: 5px solid darkgoldenrod;
+    border-bottom: 3px solid darkgoldenrod;
     display: flex;
     justify-content: space-around;
     position: fixed;
@@ -12,7 +12,7 @@
 }
 
 .scroller {
-    height: 90px;
+    height: 80px;
     margin-top: 0;
     transition: 0.5s;
     position: fixed;
@@ -35,30 +35,22 @@
 }
 
 .Authentications_Box {
-    width: 190px;
+    width: fit-content;
     display: flex;
     justify-content: space-between;
 }
 
-.Authentications_link {
+.Authentications_link,
+.Welcome {
     color: black;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: "Comic Sans MS", sans-serif;
     text-decoration: none;
-}
-
-.Phone_Number {
-    font-size: 1.3rem;
-    margin-left: 0.3rem;
-}
-
-.Contact {
-    display: flex;
-    align-items: center;
-    width: fit-content;
+    margin-right: 1rem;
 }
 
 .Authentications_link:hover,
 .LogoHeader:hover {
     text-shadow: 0 0 2px grey;
 }
+

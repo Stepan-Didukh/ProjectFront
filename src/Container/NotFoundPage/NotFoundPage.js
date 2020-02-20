@@ -10,13 +10,14 @@ const NotFoundPage = (props) => {
 
     const onGoHomeClick = () => {
         const { history } = props;
-        history.push('/');
+
+        history.goBack();
     };
 
     return (
         <div className={CN}>
             <img className={'NotFound'} alt="not-found" src={NotFoundImg}/>
-            <Button onClick={onGoHomeClick} label="Go Home" className={`${CN}__btn`}/>
+            <Button onClick={onGoHomeClick} label="Go Back" className={`${CN}__btn`}/>
         </div>
     );
 };

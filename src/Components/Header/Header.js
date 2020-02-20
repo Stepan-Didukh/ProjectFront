@@ -1,17 +1,17 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import './Header.css'
-import CallIcon from '@material-ui/icons/Call';
+
+const queryString = require('query-string');
 
 export default class Header extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            scrolled: false
-        }
+            scrolled: false,
+            search: ''
+        };
     }
-
 
     componentDidMount() {
         window.addEventListener('scroll', () => {
@@ -29,12 +29,24 @@ export default class Header extends Component {
         });
     }
 
+    logOut(e) {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        this.props.pushHomePage.push('/')
+    }
+
+
     render() {
+
+        const UserName = queryString.parse(this.props.pushHomePage.location.search);
+
+
         return (
+
             <div className={this.state.scroller ? 'scroller Header' : 'Header'}>
                 <Link
                     className={'LogoHeader'}
-                    to={'/'}
+                    to={localStorage.token ? `/User?Name=${UserName.Name}` : `/`}
                 >
                     FluDuck
                     <div className={'Logo_lviv'}>
@@ -42,29 +54,62 @@ export default class Header extends Component {
                     </div>
                 </Link>
 
-                <div className={'Authentications_Box'}>
-                    <Link
-                        className={`Authentications_link`}
-                        to={'/login'}
-                    >
-                        Sign in</Link>
 
-                    <Link
-                        className={`Authentications_link`}
-                        to={'/register'}
-                    >Sign up</Link>
+                {
+                    localStorage.token ?
+                        <div className={'Authentications_Box'}>
+                            <Link
+                                onClick={this.logOut.bind(this)}
+                                className="Authentications_link"
+                                to={''}
+                            >Logout</Link>
+                            <Link
+                                to={`/Support?Name=${UserName.Name}`}
+                                className="Authentications_link"
+                            >
+                                Support
+                            </Link>
+                        </div>
+                        :
+                        <div className={'Authentications_Box'}>
+                            <Link
+                                className={`Authentications_link`}
+                                to={'/login'}
+                            >
+                                Sign in</Link>
+                            <Link
+                                className={`Authentications_link`}
+                                to={'/register'}
+                            >Sign up</Link>
+                        </div>
+                }
+                {
+                    this.props.pushHomePage.location.pathname === `/Admin` && localStorage.token ?
 
-                </div>
+                        <div>
+                            <Link
+                                to={`/Users`}
+                                className={'Authentications_link'}
+                            >
+                                Users
+                            </Link>
+                            <Link
+                                to={`/AddRoom`}
+                                className={'Authentications_link'}
+                            >
+                                Add Room
+                            </Link>
+                        </div> : ''
 
-                <div className={'Contact'}>
-                    <CallIcon/>
 
-                    <div className={'Phone_Number'}>
-                        +380681001538
-                    </div>
-                </div>
+                }
+
+                {
+                    localStorage.token ? <div className={'Welcome'}>Welcome {UserName.Name}!</div> : ''
+                }
 
             </div>
+
         )
     }
 }
