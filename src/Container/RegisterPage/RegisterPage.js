@@ -3,9 +3,9 @@ import {register} from "../../actions/UserFunctions";
 import './RegisterPage.css'
 
 export default class RegisterPage extends Component {
-    constructor() {
-        super();
-
+    constructor(props) {
+        super(props);
+        console.log(props);
         this.state = {
             name: '',
             surname: '',
@@ -33,7 +33,7 @@ export default class RegisterPage extends Component {
 
         register(newUser).then(res => {
             if (res) {
-                console.log(this.props);
+                console.log(22);
                 this.props.history.push(`/User?Name=${this.state.name}`);
 
             } else {
@@ -43,6 +43,9 @@ export default class RegisterPage extends Component {
     }
 
     render() {
+
+        console.log(this.props);
+
         return (
             <div className='loginRegister'>
                 <div className='container'>

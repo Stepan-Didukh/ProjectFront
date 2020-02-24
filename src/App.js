@@ -10,14 +10,11 @@ import HomePage from "./Container/HomePage/HomePage";
 import NotFoundPage from "./Container/NotFoundPage/NotFoundPage";
 import LoginPage from "./Container/LoginPage/LoginPage";
 import RegisterPage from "./Container/RegisterPage/RegisterPage";
-import MainPage from "./Container/MainPage/MainPage";
 import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
-import AdminPage from "./Container/AdminPage/AdminPage";
 import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
-import UserList from "./Components/UserList/UserList";
-import RoomList from "./Components/RoomList/RoomList";
-import RoomInfo from "./Container/RoomInfo/RoomInfo";
-
+import UserInfo from "./Container/UserInfo/UserInfo";
+import Support from "./Container/Support/Support";
+import AddRoom from "./Container/AdminPage/AddRoom";
 
 function App() {
 
@@ -33,15 +30,15 @@ function App() {
 
                 <Route  path="/register"><RegisterPage/></Route>
 
-                <Route path="/Room/:RoomID" component={RoomInfo}/>
+                <Route  path="/Users" component={UserInfo}/>
 
-                <Route  path="/userList" component={UserList}/>
+                <Route  path="/User" component={HomePage}/>
 
-                <Route  path="/roomList" component={RoomList}/>
+                <Route  path="/Support" component={Support}/>
 
-                <Route  path="/User" component={MainPage}/>
+                <Route  path="/Admin" component={HomePage}/>
 
-                <Route  path="/admin" component={AdminPage}/>
+                <Route  path="/AddRoom" component={AddRoom}/>
 
                 <Route path="/registerAdmin" component={RegisterAdminPage}/>
 

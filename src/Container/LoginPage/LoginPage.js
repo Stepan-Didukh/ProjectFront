@@ -6,13 +6,14 @@ import {login} from '../../actions/UserFunctions'
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             email: '',
             name: '',
             password: '',
             errors: {}
         };
-        console.log(props);
+
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
