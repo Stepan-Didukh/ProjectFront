@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import './AddRoom.css'
 import {Link} from "react-router-dom";
-// import {createRoom} from "../../actions/UserFunctions";
 import Chat from "../../Components/Chat/Chat";
 import Store from "../../Reducers/ChatStore/ChatStore";
 import axios from 'axios';

@@ -41,23 +41,3 @@ export const login = user => {
             console.log(err)
         })
 };
-
-export const createRoom = room => {
-    return axios
-        .post(' http://localhost:5000/room ', {
-            price: room.price,
-            square: room.square,
-            amount: room.amount,
-            nameRoom: room.nameRoom,
-            about: room.about,
-            park: room.park,
-        })
-        .then(response => {
-            response.message('CreateNewRoom')
-        })
-
-        .catch(err => {
-            console.log(err)
-        })
-};
-
