@@ -1,0 +1,22 @@
+.footer{
+    height: 5rem;
+    background: white;
+    width: 100%;
+    border-top: 5px solid darkgoldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 0 5px black ;
+}
+
+.contact_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 2rem;
+    width: 25rem;
+}
+
+.Some_Info{
+
+}
