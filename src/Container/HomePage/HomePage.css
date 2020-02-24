@@ -1,4 +1,5 @@
-.RoomCart {
+.RoomCart,
+.createRoom{
     width: 100%;
     height: 350px;
     border: 2px solid darkgoldenrod;
@@ -146,4 +147,46 @@
 
 .Reserve {
     background: green;
+}
+
+.addRoom {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 3px solid darkgoldenrod;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1rem;
+    align-items: center;
+    transition: 0.5s ease-out;
+}
+
+.lineAddRoomBtn {
+    height: 3px;
+    width: 100%;
+    background: darkgoldenrod;
+}
+
+.transRot {
+    transform: rotate(90deg);
+    margin-top: -0.15rem;
+}
+
+.addRoom:hover {
+    box-shadow: 0 0 4px black;
+}
+
+.Hide {
+    display: none;
+    transition: 0.5s ease-out;
+}
+
+.closeIcon{
+    margin-left: 99%;
+    transform: translateX(-100%);
+    margin-top: 0.3rem;
+}
+
+.closeIcon:hover{
+   color: darkgoldenrod;
 }

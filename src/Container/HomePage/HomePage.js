@@ -4,6 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import HotelIcon from '@material-ui/icons/Hotel';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
+import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 import {Footer} from "../../Components/Footer/Footer";
 import {connect} from "react-redux";
 import {Room} from "../../actions/getRoom";
@@ -14,18 +15,17 @@ import axios from "axios";
 class HomePage extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
 
+        this.state = {
+            ShowCreateRoom: true
+        };
+
+        this.toggleDangerAlert = this.toggleDangerAlert.bind(this)
+        this.toggleDangerAlertOff = this.toggleDangerAlertOff.bind(this)
     }
 
     componentDidMount() {
         this.props.fetchData("http://localhost:5000/room/findAll");
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if (nextProps.rooms !== 0) {
-            return true
-        }
     }
 
     deleteRoom = id => {
@@ -36,12 +36,34 @@ class HomePage extends Component {
             });
     };
 
+    toggleDangerAlert() {
+        const {toggleDangerAlert} = this.props;
+
+        toggleDangerAlert && toggleDangerAlert();
+
+        this.setState({
+            ShowCreateRoom: false
+        })
+    }
+
+    toggleDangerAlertOff() {
+        const {toggleDangerAlertOff} = this.props;
+
+        toggleDangerAlertOff && toggleDangerAlertOff();
+
+        this.setState({
+            ShowCreateRoom: true
+        })
+    }
+
 
     render() {
 
         const pushHomePage = this.props.history;
-
         const Rooms = this.props.rooms;
+        const {ShowCreateRoom} = this.state;
+        const HideBtnAddRoom = ShowCreateRoom ? 'addRoom' : 'Hide';
+        const ShowBoxCreateRoom = ShowCreateRoom ? 'Hide' : 'createRoom';
 
         return (
             <div>
@@ -138,6 +160,24 @@ class HomePage extends Component {
                         </div>
                     }
                 </div>
+                {
+                    this.props.location.pathname === `/Admin` && localStorage.token ?
+                        <div className={'ListRoom_Home_Page'}>
+                            <button
+                                className={`${HideBtnAddRoom}`}
+                                onClick={this.toggleDangerAlert}
+                            >
+                                <div className={'lineAddRoomBtn correct'}/>
+                                <div className={'lineAddRoomBtn transRot'}/>
+                            </button>
+                            <div className={`${ShowBoxCreateRoom}`}>
+                                <CancelOutlinedIcon
+                                    onClick={this.toggleDangerAlertOff}
+                                    className={'closeIcon'}/>
+                            </div>
+                        </div>
+                        : ""
+                }
                 <Footer/>
             </div>
         )

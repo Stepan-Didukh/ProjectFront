@@ -1,6 +1,5 @@
 import React from 'react';
 import NotFoundImg from '../../assets/not-found.png';
-import {Button} from "../../Components/Button/Button";
 import './NotFoundPage.css';
 
 
@@ -17,7 +16,7 @@ const NotFoundPage = (props) => {
     return (
         <div className={CN}>
             <img className={'NotFound'} alt="not-found" src={NotFoundImg}/>
-            <Button onClick={onGoHomeClick} label="Go Back" className={`${CN}__btn`}/>
+            <botton onClick={onGoHomeClick} label="Go Back" className={`${CN}__btn`}/>
         </div>
     );
 };
