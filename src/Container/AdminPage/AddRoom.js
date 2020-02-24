@@ -1,6 +1,11 @@
 import React, {Component} from "react";
 import './AddRoom.css'
-import {createRoom} from "../../actions/UserFunctions";
+import {Link} from "react-router-dom";
+// import {createRoom} from "../../actions/UserFunctions";
+import Chat from "../../Components/Chat/Chat";
+import Store from "../../Reducers/ChatStore/ChatStore";
+import axios from 'axios';
+const queryString = require('query-string');
 
 class AddRoom extends Component {
 
@@ -14,46 +19,75 @@ class AddRoom extends Component {
             nameRoom: '',
             about: '',
             park: '',
+            fileName:null,
             errors: {}
         };
 
         this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
     }
+    createRoom = () => {
+
+        const data = new FormData();
+        data.append('file',this.state.fileName);
+        data.append('price',this.state.price);
+        data.append('square',this.state.square);
+        data.append('amount',this.state.amount);
+        data.append('nameRoom',this.state.nameRoom);
+        data.append('about',this.state.about);
+        data.append('park',this.state.park);
+
+        axios.post("http://localhost:5000/room",  data,{
+        }).then(res => {
+            console.log(res.statusText)
+        })
+
+    };
 
     onChange(e) {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    onSubmit(e) {
-        e.preventDefault();
-
-        const room = {
-            price: this.state.price,
-            square: this.state.square,
-            amount: this.state.amount,
-            nameRoom: this.state.nameRoom,
-            about: this.state.about,
-            park: this.state.park,
-        };
-
-        createRoom(room).then(res => {
-            if (res) {
-                console.log(22);
-            }
+    onChangeHandler=event=>{
+        this.setState({
+            fileName: event.target.files[0],
+            loaded: 0,
         })
+    };
+
+    logOut(e) {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        this.props.history.push('/');
     }
 
     render() {
 
+        const parsed = queryString.parse(this.props.location.search);
+
         return (
             <div>
+                <div className={'headerUser'}>
+
+                    <Link
+                        to={`/UserList`}
+                        className="nav-link"
+                    >Users</Link>
+                    <Link
+                        to={`/RoomList`}
+                        className="nav-link"
+                    >Room</Link>
+                    <Link
+                        onClick={this.logOut.bind(this)}
+                        className="nav-link"
+                        to={''}
+                    >Logout</Link>
+                </div>
 
                 <main className={'main'}>
                     <div className={'display-flex'}>
                         <div className={'createNewRooms'}>
                             <div className={'h2'}>Create new room</div>
-                            <form createRoom onSubmit={this.onSubmit}>
+                            <form createRoom >
                                 <div className={'inputBox'}>
                                     <div className="form-group">
                                         <label htmlFor="nameRoom">nameRoom</label>
@@ -103,17 +137,30 @@ class AddRoom extends Component {
                                                value={this.state.amount}
                                                onChange={this.onChange}/>
                                     </div>
+                                    <div className="form-group">
+                                        <label>Add Image</label>
+                                        <input type="file"
+                                               name="file"
+                                               accept=".png, .jpg"
+                                               onChange={this.onChangeHandler}/>
+
+                                        <img src={this.fileName} alt=""/>
+                                    </div>
+
                                 </div>
                                 <div className="login-footer">
 
                                     <button
-                                        onClick={event => (!this.state.amount || !this.state.price || !this.state.square || !this.state.nameRoom || !this.state.about) ? event.preventDefault() : null}
+                                        onClick={this.createRoom}
                                         type="submit"
                                         className="btn"> Register
                                     </button>
                                 </div>
                             </form>
                         </div>
+                        <Store>
+                            <Chat parsed={parsed}/>
+                        </Store>
                     </div>
                 </main>
 
