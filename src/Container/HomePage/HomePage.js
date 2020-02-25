@@ -167,12 +167,18 @@ class HomePage extends Component {
                                 <div className={'lineAddRoomBtn transRot'}/>
                             </button>
                             <div className={`${ShowBoxCreateRoom}`}>
-                                <div>
+                                <div className={'Room-Photo'}>
+
+                                </div>
+                                <div className={''}>
+
+                                </div>
                                     <CancelOutlinedIcon
                                         onClick={this.toggleDangerAlertOff}
                                         className={'closeIcon'}
                                     />
-                                </div>
+
+
 
 
                             </div>
