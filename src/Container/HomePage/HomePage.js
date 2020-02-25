@@ -20,12 +20,12 @@ class HomePage extends Component {
             ShowCreateRoom: true
         };
 
-        this.toggleDangerAlert = this.toggleDangerAlert.bind(this)
-        this.toggleDangerAlertOff = this.toggleDangerAlertOff.bind(this)
+        this.toggleDangerAlert = this.toggleDangerAlert.bind(this);
+        this.toggleDangerAlertOff = this.toggleDangerAlertOff.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchData("http://localhost:5000/room/findAll");
+        this.props.fetchData("http://localhost:5000/room/findAll")
     }
 
     deleteRoom = id => {
@@ -138,6 +138,7 @@ class HomePage extends Component {
                                                     className={`Control_Btn Delete`}
                                                     onClick={() => {
                                                         this.deleteRoom(room.id).then(() => {
+                                                            this.componentDidMount()
                                                         })
                                                     }}
                                                 >
