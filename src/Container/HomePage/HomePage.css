@@ -22,12 +22,12 @@
     padding: 1rem 5rem 1rem 5rem;
 }
 
-.Room-Photo {
+.Room-Photo{
     height: 300px;
-    width: 25%;
+    width: 300px;
     margin-left: 1rem;
     margin-top: 25px;
-    background: #8c8c8c;
+    background: cadetblue;
 }
 
 .Main_info_Room {
@@ -189,4 +189,10 @@
 
 .closeIcon:hover{
    color: darkgoldenrod;
+}
+
+.createRoomPhoto{
+    height: 300px;
+    width: 300px;
+    background: #3498db;
 }

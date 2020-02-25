@@ -143,12 +143,7 @@ class HomePage extends Component {
                                                 >
                                                     Delete {room.id}
                                                 </div>
-                                                <div
 
-                                                    className={'Control_Btn Update'}
-                                                >
-                                                    Update
-                                                </div>
                                             </div> : ''
 
 
@@ -171,9 +166,14 @@ class HomePage extends Component {
                                 <div className={'lineAddRoomBtn transRot'}/>
                             </button>
                             <div className={`${ShowBoxCreateRoom}`}>
-                                <CancelOutlinedIcon
-                                    onClick={this.toggleDangerAlertOff}
-                                    className={'closeIcon'}/>
+                                <div>
+                                    <CancelOutlinedIcon
+                                        onClick={this.toggleDangerAlertOff}
+                                        className={'closeIcon'}
+                                    />
+                                </div>
+
+
                             </div>
                         </div>
                         : ""
