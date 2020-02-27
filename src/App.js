@@ -14,7 +14,6 @@ import RegisterAdminPage from "./Container/RegisterAdminPage/RegisterAdminPage";
 import LoginAdminPage from "./Container/LoginAdminPage/LoginAdminPage";
 import UserInfo from "./Container/UserInfo/UserInfo";
 import Support from "./Container/Support/Support";
-import AddRoom from "./Container/AdminPage/AddRoom";
 
 function App() {
 
@@ -37,8 +36,6 @@ function App() {
                 <Route  path="/Support" component={Support}/>
 
                 <Route  path="/Admin" component={HomePage}/>
-
-                <Route  path="/AddRoom" component={AddRoom}/>
 
                 <Route path="/registerAdmin" component={RegisterAdminPage}/>
 

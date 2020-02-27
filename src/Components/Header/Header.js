@@ -93,17 +93,10 @@ export default class Header extends Component {
                             >
                                 Users
                             </Link>
-                            <Link
-                                to={`/AddRoom`}
-                                className={'Authentications_link'}
-                            >
-                                Add Room
-                            </Link>
                         </div> : ''
 
 
                 }
-
                 {
                     localStorage.token ? <div className={'Welcome'}>Welcome {UserName.Name}!</div> : ''
                 }

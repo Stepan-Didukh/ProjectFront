@@ -1,11 +1,12 @@
-import {FIND_ALL_ROOMS} from '../actions-type/actions-type'
+import { FIND_ALL_ROOMS} from '../actions-type/actions-type'
 
-export  function UserSuccess(rooms) {
-    return{
-        type:FIND_ALL_ROOMS,
+export function UserSuccess(rooms) {
+    return {
+        type: FIND_ALL_ROOMS,
         rooms
     }
 }
+
 export function Room(url) {
     return (dispatch) => {
         fetch(url)
@@ -16,7 +17,9 @@ export function Room(url) {
                 return response;
             })
             .then(response => response.json())
-            .then(rooms  => dispatch(UserSuccess(rooms)))
-            .catch(()=>{});
+            .then(rooms => dispatch(UserSuccess(rooms)))
+            .catch(() => {
+            });
     }
 }
+
