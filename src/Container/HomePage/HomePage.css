@@ -199,3 +199,10 @@
     height: 4rem;
     width: 80%;
 }
+
+.Reserved{
+    font-size: 2rem;
+    font-family: "Open Sans", sans-serif;
+    color: black;
+    margin-left: 0.5rem;
+}

@@ -69,8 +69,8 @@ export default class RoomInfo extends Component {
                         localStorage.token && status_id===2 ?
                             <div className={'Control_Btn Reserve'}>
                                 Reserve
-                            </div> : <div>
-                            reserved
+                            </div> : <div className={"Reserved"}>
+                                This room is reserved
                             </div>
                     }
                     {

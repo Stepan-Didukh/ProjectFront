@@ -111,19 +111,10 @@ class HomePage extends Component {
                     src={Photo}
                     alt="Photo"
                 />
-
-                <input
-                    value={this.state.search}
-                    onChange={this.updateSearch.bind(this)}
-                    type={'text'}>
-
-                </input>
-
-
-                    <RoomList
-                        Rooms={Rooms}
-                        Admin={Admin}
-                    />
+                <RoomList
+                    Rooms={Rooms}
+                    Admin={Admin}
+                />
 
                 {
                     this.props.location.pathname === `/Admin` && localStorage.token ?
