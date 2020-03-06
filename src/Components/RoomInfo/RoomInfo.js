@@ -74,7 +74,7 @@ export default class RoomInfo extends Component {
                             </div>
                     }
                     {
-                        Admin === `/Admin` && localStorage.token ?
+                        Admin === `/Admin` && localStorage.token && status_id===2 ?
 
                             <div className={'Control_Room'}>
                                 <div
